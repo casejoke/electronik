@@ -105,15 +105,15 @@ gulp.task('copyopensans', function() {
 });
 
 gulp.task('copyfont', function() {
-    gulp.src([ './bower_components/bootstrap-sass/assets/fonts/bootstrap/*', 
-               './bower_components/components-font-awesome/fonts/*'
+    gulp.src([ 
+              './bower_components/bootstrap-sass/assets/fonts/bootstrap/*', 
+              './bower_components/components-font-awesome/fonts/*'
              ])
-        .pipe(gulp.dest(fontsTargetbs))
-         .pipe(notify({
-            title: 'fontIconBootstrap',
-            message: 'copy Complide'
-
-    }));
+      .pipe(gulp.dest(fontsTargetbs))
+      .pipe(notify({
+          title: 'fontIconBootstrap',
+          message: 'copy Complide'
+      }));
 
 });
 //jade task
@@ -157,11 +157,6 @@ gulp.task('htmlpage', function() {
     }));
 });
 // JS concat, strip debugging and minify
-
-
-
-
-
 gulp.task('scripts', function() {
    gulp.src(sourcesjs)
         .pipe(concat('script.js'))
