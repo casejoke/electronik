@@ -47,7 +47,13 @@ var destination         = '../catalog/view/theme/' + name + '/assets/*';
 var destination_css     = '../catalog/view/theme/' + name + '/assets/css/';
 var destination_js      = '../catalog/view/theme/' + name + '/assets/js/';
 var destination_fonts   = '../catalog/view/theme/' + name + '/assets/fonts/';
-var destination_image   = '../catalog/view/theme/' + name + '/assets/css/img';
+var destination_image   = '../catalog/view/theme/' + name + '/assets/images/';
+    
+    assetsTarget = destination;
+    cssTarget = destination_css;
+    jsTarget = destination_js;
+    fontsTarget = destination_fonts;
+    imagesTarget = destination_image;
 
 
 var sourcesjs      =  [     
