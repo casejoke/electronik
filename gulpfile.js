@@ -28,7 +28,7 @@ var version        = pkg.version;
 var name           = pkg.name;
 var browsers       = pkg.browsers;
 // source
-var imgSource      = './src/images/**/*';
+var imgSource      = './src/sass/custom/images/**/*';
 var htmlSource     = './src/html/*.html';
 var jadeSource     = './src/jade/*.jade';
 var sassSource     = './src/sass/styles.scss';
@@ -37,10 +37,17 @@ var jsSource       = './src/scripts/*.js'
 // target
 var htmlTarget     = './www/';
 var assetsTarget   = './www/assets/';
+var imagesTarget   = './www/assets/images/';
 var cssTarget      = './www/assets/css/';
 var jsTarget       = './www/assets/js/';
 var fontsTarget    = './www/assets/fonts/';
 
+//custom template destination
+var destination         = '../catalog/view/theme/' + name + '/assets/*';
+var destination_css     = '../catalog/view/theme/' + name + '/assets/css/';
+var destination_js      = '../catalog/view/theme/' + name + '/assets/js/';
+var destination_fonts   = '../catalog/view/theme/' + name + '/assets/fonts/';
+var destination_image   = '../catalog/view/theme/' + name + '/assets/css/img';
 
 
 var sourcesjs      =  [     
@@ -73,7 +80,7 @@ var sourcesjs      =  [
 'bower_components/superfish/dist/js/supersubs.js',
 //'bower_components/flexslider/jquery.flexslider.js',
 
-// 'bower_components/flickity/dist/flickity.pkgd.js',
+ 'bower_components/flickity/dist/flickity.pkgd.js',
 // 'bower_components/isotope/js/isotope.js',
 // 'bower_components/rs-plugin/js/jquery.themepunch.tools.min.js',
 // 'bower_components/rs-plugin/js/jquery.themepunch.revolution.min.js',
@@ -81,11 +88,9 @@ var sourcesjs      =  [
 // 
 'bower_components/imagesloaded/imagesloaded.pkgd.js',
 
-'./src/scripts/scripts.js',
 './src/scripts/main.js'
 ];
 var custom_sourcesjs = [
-    './src/scripts/scripts.js',
     './src/scripts/main.js'
 ];
 
@@ -103,8 +108,8 @@ gulp.task('clean', function() {
 
 gulp.task('copyfont', function() {
     gulp.src([ 
-              './bower_components/bootstrap-sass/assets/fonts/bootstrap/*', 
-              './bower_components/components-font-awesome/fonts/*'
+            //  './bower_components/bootstrap-sass/assets/fonts/bootstrap/*', 
+              './bower_components/components-font-awesome/fonts/**/*'
              ])
       .pipe(gulp.dest(fontsTarget))
       .pipe(notify({
@@ -187,13 +192,24 @@ gulp.task('sass', function() {
         .pipe(gulp.dest(cssTarget));
 });
 
+// tasks copy temp image
+gulp.task('copytempimage', function() {
+    return gulp.src([imgSource])
+    .pipe(gulp.dest(imagesTarget))
+    .pipe(notify({
+            title: 'copy temp images',
+            message: 'images - completed the work!'
+    }));
+});
+
+
 // default gulp task
-gulp.task('default', ['clean','copyfont','htmlpage','sass', 'jshint','scripts']);
+gulp.task('default', ['clean','copyfont', 'copytempimage','htmlpage','sass', 'jshint','scripts']);
 // default gulp task
 gulp.task('watch', function() {
     gulp.watch('./src/scripts/*.js', ['jshint','scripts']);
     gulp.watch('./src/sass/{,*/}*.{scss,sass}', ['sass']);
-    gulp.watch('./src/htmlpage/**/*', ['htmlpage']);
+    gulp.watch('./src/html/**/*', ['htmlpage']);
 });
 
 
