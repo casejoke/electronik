@@ -1,17 +1,17 @@
-jQuery(document).ready(function () {
+$(document).ready(function () {
     'use strict';
 
 
 
     /* Flickity */
 
-    jQuery('#featuresSlider').flickity({
+    $('#featuresSlider').flickity({
         cellAlign: 'left',
         contain: true,
         prevNextButtons: false
     });
 
-    jQuery('#showcaseSlider').flickity({
+    $('#showcaseSlider').flickity({
         cellAlign: 'left',
         contain: true,
         prevNextButtons: false,
@@ -23,69 +23,35 @@ jQuery(document).ready(function () {
     /* Preloader */
 
     setTimeout(function(){
-        jQuery('body').addClass('loaded');
-        //jQuery('h1').css('color','#222222');
+        $('body').addClass('loaded');
+        //$('h1').css('color','#222222');
     }, 3000);
 
 
 
-    jQuery(window).load(function () {
+    $(window).load(function () {
 
 
         /* Sticky Header */
 
-        jQuery(".sticky-header").sticky({topSpacing: 0});
+        $(".sticky-header").sticky({topSpacing: 0});
 
-
-        /* FlexSlider */
-
-        jQuery('.flexslider').flexslider({
-            animation: "slide",
-            controlNav: false,
-            prevText: "",
-            nextText: ""
-        });
+        
+       
 
     });
 
 
 
 
-    /* Isotope Portfolio */
-
-    var $container = jQuery('.isotope-container').imagesLoaded( function() {
-      $container.isotope({
-        // options
-      });
-    });
-
-    /* activate jquery isotope */
-    var $container = jQuery('#posts').isotope({
-      itemSelector : '.item',
-      isFitWidth: true
-    });
-
-    jQuery(window).smartresize(function(){
-      $container.isotope({
-        columnWidth: '.col-md-3'
-      });
-    });
-
-    $container.isotope({ filter: '*' });
-
-    // filter items on button click
-    jQuery('#isotope-filters').on( 'click', 'a', function() {
-      var filterValue = jQuery(this).attr('data-filter');
-      $container.isotope({ filter: filterValue });
-    });
-
+  
 
 
 
 
   /* Superfish dropdown menu */
 
-    jQuery('ul.sf-menu').superfish({
+    $('ul.sf-menu').superfish({
         delay: 600,                            // one second delay on mouseout
         speed: 'fast',                          // faster animation speed
         animation: {opacity: 'show', height: 'show'},
@@ -95,15 +61,15 @@ jQuery(document).ready(function () {
 
 
 
-    jQuery('#mobnav-btn').click(
+    $('#mobnav-btn').click(
         function () {
-            jQuery('.sf-menu').toggleClass("xactive");
+            $('.sf-menu').toggleClass("xactive");
         }
     );
 
-    jQuery('.mobnav-subarrow').click(
+    $('.mobnav-subarrow').click(
         function () {
-            jQuery(this).parent().toggleClass("xpopdrop");
+            $(this).parent().toggleClass("xpopdrop");
         }
     );
 
@@ -113,26 +79,26 @@ jQuery(document).ready(function () {
 
     /* Bootstrap Carousel */
 
-    jQuery('#myCarousel').carousel({
+    $('#myCarousel').carousel({
         interval: 8000
     });
 
     // handles the carousel thumbnails
-    jQuery('[id^=carousel-selector-]').click(function () {
-        var id_selector = jQuery(this).attr("id");
+    $('[id^=carousel-selector-]').click(function () {
+        var id_selector = $(this).attr("id");
         var id = id_selector.substr(id_selector.length - 1);
         id = parseInt(id);
-        jQuery('#myCarousel').carousel(id);
-        jQuery('[id^=carousel-selector-]').removeClass('selected');
-        jQuery(this).addClass('selected');
+        $('#myCarousel').carousel(id);
+        $('[id^=carousel-selector-]').removeClass('selected');
+        $(this).addClass('selected');
     });
 
     // when the carousel slides, auto update
-    jQuery('#myCarousel').on('slid', function (e) {
-        var id = jQuery('.item.active').data('slide-number');
+    $('#myCarousel').on('slid', function (e) {
+        var id = $('.item.active').data('slide-number');
         id = parseInt(id);
-        jQuery('[id^=carousel-selector-]').removeClass('selected');
-        jQuery('[id=carousel-selector-' + id + ']').addClass('selected');
+        $('[id^=carousel-selector-]').removeClass('selected');
+        $('[id=carousel-selector-' + id + ']').addClass('selected');
     });
 
 
@@ -141,8 +107,8 @@ jQuery(document).ready(function () {
 
 
     /* Stellar Parallax */
-
-    jQuery.stellar({
+/*
+    $.stellar({
         //responsive: true,
         //horizontalOffset: 0,
         //verticalOffset: 0,
@@ -152,18 +118,18 @@ jQuery(document).ready(function () {
         //responsive: true
     });
 
-
+*/
 
 
 
     //function html5_resizer() {
-    //    jQuery('.photocard-video').each(function(){
-    //        var width = jQuery(this).width();
+    //    $('.photocard-video').each(function(){
+    //        var width = $(this).width();
     //        var ratio = 16/9;
     //        var pWidth; // player width, to be defined
-    //        var	height = jQuery(this).height();
+    //        var	height = $(this).height();
     //        var	pHeight; // player height, tbd
-    //        var	videojs_container = jQuery(this).find('#photocardvideo');
+    //        var	videojs_container = $(this).find('#photocardvideo');
     //        //console.log(width);
     //        // when screen aspect ratio differs from video, video must center and underlay one dimension
     //
@@ -179,32 +145,32 @@ jQuery(document).ready(function () {
     //
     //
     //// events
-    //jQuery(window).resize(function() {
+    //$(window).resize(function() {
     //    html5_resizer();
     //});
     //html5_resizer();
 
     // Hero image
-    var document_height = jQuery( window ).height();
-    var document_width = jQuery( window ).width();
-    jQuery(".heroimage-wrap").height(document_height);
+    var document_height = $( window ).height();
+    var document_width = $( window ).width();
+    $(".heroimage-wrap").height(document_height);
 
-    var header_height = jQuery(".outer-wrap").outerHeight() * -1;
+    var header_height = $(".outer-wrap").outerHeight() * -1;
     console.log(header_height);
     if (header_height!==0) {
         // $("#heroimage1").css("marginTop",header_height);
     }
-    jQuery(window).resize(function() {
+    $(window).resize(function() {
 
-        document_height = jQuery( window ).height();
+        document_height = $( window ).height();
 
-        if ( jQuery(".outer-wrap").is(":visible") ) {
+        if ( $(".outer-wrap").is(":visible") ) {
             // header_height = $(".'.esc_js($offsetclass).'").outerHeight() * -1;
             // $("#heroimage1").css({"marginTop":header_height,"background-size":"cover"});
         } else {
-            jQuery("#heroimage").css({"marginTop":"0","background-size":"cover"});
+            $("#heroimage").css({"marginTop":"0","background-size":"cover"});
         }
-        jQuery(".heroimage-wrap").height(document_height);
+        $(".heroimage-wrap").height(document_height);
     });
 
 
@@ -212,9 +178,9 @@ jQuery(document).ready(function () {
 
 
     /* Slider Revolution */
-
-    if (jQuery('.tp-banner').length) {
-        jQuery('.tp-banner').show().revolution(
+/*
+    if ($('.tp-banner').length) {
+        $('.tp-banner').show().revolution(
             {
                 dottedOverlay: "none",
                 delay: 9000,
@@ -289,13 +255,13 @@ jQuery(document).ready(function () {
                 startWithSlide: 0
             });
     }
-
+*/
 
     /* Back to top */
 
-    jQuery("#back-top").hide();
+    $("#back-top").hide();
 
-    jQuery(window).scroll(function () {
+    $(window).scroll(function () {
          if ($(this).scrollTop() > 100) {
              $('#back-top').fadeIn();
          } else {
@@ -303,7 +269,7 @@ jQuery(document).ready(function () {
          }
     });
 
-    jQuery('#back-top a').click(function () {
+    $('#back-top a').click(function () {
          $('body,html').animate({
              scrollTop: 0
          }, 600);
@@ -313,8 +279,8 @@ jQuery(document).ready(function () {
 
 
     /* Flickr feed */
-
-    jQuery('#basicuse').jflickrfeed({
+/*
+    $('#basicuse').jflickrfeed({
         limit: 10,
         qstrings: {
             id: '32532032@N06'
@@ -323,32 +289,18 @@ jQuery(document).ready(function () {
         '<a href="{{image_b}}"><img src="{{image_s}}" class="img-rounded" alt="{{title}}" /></a>' +
         '</li>'
     });
+*/
 
 
-    /* Google Analytics */
-
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-40696437-6', 'auto');
-    ga('send', 'pageview');
+   
 
     var gmapIsReady = false;
 
-    jQuery('.gm-toggle-link').click(function() {
+    $('.gm-toggle-link').click(function() {
         if (!gmapIsReady) {
             initGmap();
         }
-        jQuery('#gm-panel').slideToggle('slow');
+        $('#gm-panel').slideToggle('slow');
     });
 
 
@@ -385,7 +337,7 @@ jQuery(document).ready(function () {
 
         // Create a map object, and include the MapTypeId to add
         // to the map type control.
-        var $latlng = new google.maps.LatLng(52.5075419, 13.4261419),
+        var $latlng = new google.maps.LatLng(55.806711, 37.629124),
             $mapOptions = {
                 zoom: 13,
                 center: $latlng,

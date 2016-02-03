@@ -1,16 +1,7 @@
-@import '_custom_var';
-  
-@import '_font_myriadpro';
-@import '_font_helyetica';
 
-$icon-font-path: '../fonts/bootstrap/' !default;
+$icon-font-path: '../fonts/' !default;
 
 @import "bower_components/components-font-awesome/scss/font-awesome";
-
-
-@import "bower_components/open-sans/scss/open-sans";
-
-@import "novecento-font";
 
 
 /*!
@@ -73,22 +64,5 @@ $icon-font-path: '../fonts/bootstrap/' !default;
 
 
 
-
-
-
-
-@import "fancybox/jquery.fancybox";
-
-@import "fancybox/helpers/jquery.fancybox-buttons";
-
-@import "flexslider";
-
-@import "rs-plugin/settings";
-
-@import "extralayers";
-
-@import "feather/css/feather";
-
 @import "custom/scss/style"; 
 
-@import "_modules";

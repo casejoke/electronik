@@ -33,7 +33,7 @@
 /* White Skin */
 $bg-skin: #fff;
 
-/* Contrast */
+/* Contrast 
 $bg-light:  #e8e8e8;
 $bg-medium: #666;
 $bg-dark:   #333;
@@ -47,7 +47,7 @@ $fontcolor-invert: #fff;
 $fontcolor-medium-light: #f2f2f2;
 $hovercolor: #de3627;
 $accentcolor: #ff9900;
-
+*/
 /* Blue-grey */
 //$bg-light: #e8f3f8;
 //$bg-medium: #2a5a72;
@@ -109,19 +109,19 @@ $accentcolor: #ff9900;
 //$accentcolor: #00a0b0;
 
 /* Miami */
-//$bg-light:  #F2E6E6;
-//$bg-medium: #9e6898;
-//$bg-dark:   #703851;
-//$bg-darker: #663149;
-//$bg-accent: #65C6A4;
-//$bg-light-texture: url('../images/backgrounds/miami/bg-light.png');
-//$bg-dark-texture:  url('../images/backgrounds/miami/bg-dark.png');
-//$fontcolor-regular: #333;
-//$fontcolor-medium: #999;
-//$fontcolor-invert: #fff;
-//$fontcolor-medium-light: #f2f2f2;
-//$hovercolor: #9B2045;
-//$accentcolor: #90ED84;
+$bg-light:  #F2E6E6;
+$bg-medium: #9e6898;
+$bg-dark:   #703851;
+$bg-darker: #663149;
+$bg-accent: #65C6A4;
+$bg-light-texture: url('../images/backgrounds/miami/bg-light.png');
+$bg-dark-texture:  url('../images/backgrounds/miami/bg-dark.png');
+$fontcolor-regular: #333;
+$fontcolor-medium: #999;
+$fontcolor-invert: #fff;
+$fontcolor-medium-light: #f2f2f2;
+$hovercolor: #9B2045;
+$accentcolor: #90ED84;
 
 /* Times */
 //$bg-light:  #f4e7f4;
@@ -212,8 +212,9 @@ $accentcolor: #ff9900;
 @mixin block-margins {  padding: 100px 0 100px 0;  }
 @mixin block-ins-margins {  padding: 70px 0 70px 0;  }
 @mixin infoblock-margins {  margin: 0 0 35px 0;  }
+@mixin block-margins-new {  padding: 0px 0 100px;  }
 
-.e-block {  @include block-margins;  }
+.e-block {  @include block-margins-new;  }
 .e-block-ins {@include block-ins-margins;}
 .e-block-skin {  background: $bg-skin;  }
 .e-block-light {
@@ -468,14 +469,14 @@ $accentcolor: #ff9900;
 
 /* Headings Fonts variables */
 
-$font-accident-one-book:          Novecentosanswide-Book,      sans-serif;
-$font-accident-one-bold:          Novecentosanswide-Bold,      sans-serif;
-$font-accident-one-demibold:      Novecentosanswide-DemiBold,  sans-serif;
-$font-accident-one-light:         Novecentosanswide-Light,     sans-serif;
-$font-accident-one-medium:        Novecentosanswide-Medium,    sans-serif;
-$font-accident-one-normal:        Novecentosanswide-Normal,    sans-serif;
+$font-accident-one-book:          'Roboto Condensed',      sans-serif;
+$font-accident-one-bold:          'Roboto Condensed',      sans-serif;
+$font-accident-one-demibold:      'Roboto Condensed',      sans-serif;
+$font-accident-one-light:         'Roboto Condensed',      sans-serif;
+$font-accident-one-medium:        'Roboto Condensed',      sans-serif;
+$font-accident-one-normal:        'Roboto Condensed',      sans-serif;
 $font-accident-two: 'Georgia',                  serif;
-$font-regular: 'Oxygen',                        sans-serif;
+$font-regular: 'Roboto Condensed',                        sans-serif;
 
 
 /* Heading font one */
@@ -2905,7 +2906,7 @@ blockquote footer:before, blockquote small:before, blockquote .small:before {  c
   margin-bottom: 22px;
 }
 .post-date {
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-style: oblique;
   font-size: 12px;
   line-height: 14px;
